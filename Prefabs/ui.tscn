@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cpww74qudbjpr"]
+
+[node name="UI" type="Control" unique_id=1466292623]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CamPositionButton" type="Button" parent="." unique_id=1586248954]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.91
+anchor_bottom = 0.91
+offset_left = 13.0
+offset_top = -48.679993
+offset_right = 56.0
+offset_bottom = -17.679993
+grow_vertical = 0
+scale = Vector2(2.9541037, 3.1748414)
+text = "Cam"
+
+[node name="PointButton" type="Button" parent="." unique_id=1753915449]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.91
+anchor_bottom = 0.91
+offset_left = 147.0
+offset_top = -57.679993
+offset_right = 249.0
+offset_bottom = -26.679993
+grow_vertical = 0
+scale = Vector2(1.6205939, 3.4794812)
+text = "Place Points"
+
+[connection signal="pressed" from="PointButton" to="." method="_on_point_button_pressed"]

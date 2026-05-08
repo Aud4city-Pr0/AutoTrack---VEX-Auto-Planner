@@ -1,7 +1,6 @@
 extends Camera3D
 
 @export var cast_range := 1000.0
-
 func _input(event):
 
 	if event.is_action_pressed("PlacePoint"):

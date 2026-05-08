@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bl22aavsn8toa" path="res://Prefabs/robor.tscn" id="1_ikm06"]
 [ext_resource type="Texture2D" uid="uid://bsehew7oev4ud" path="res://Textures/Skybox.png" id="2_m5pvo"]
 [ext_resource type="Script" uid="uid://duh0k0trxgxl5" path="res://Scenes/PlacementScript.gd" id="3_oxycb"]
+[ext_resource type="PackedScene" uid="uid://cpww74qudbjpr" path="res://Prefabs/ui.tscn" id="5_ncggb"]
+[ext_resource type="Script" uid="uid://47xprjg5ofbd" path="res://Scripts/UI Scripts/UIScript.gd" id="6_ydrv4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_shakw"]
 
@@ -94,3 +96,7 @@ light_energy = 4.96
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1803827156]
 environment = SubResource("Environment_m5pvo")
+
+[node name="UI" parent="." unique_id=1466292623 node_paths=PackedStringArray("placmentScriptObject") instance=ExtResource("5_ncggb")]
+script = ExtResource("6_ydrv4")
+placmentScriptObject = NodePath("../ObserverCam")
