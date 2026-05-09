@@ -49,4 +49,3 @@ scale = Vector2(1.4603403, 3.010798)
 text = "Remove Points"
 
 [connection signal="pressed" from="PointButton" to="." method="_on_point_button_pressed"]
-[connection signal="pressed" from="RemoveButton" to="." method="_on_point_button_pressed"]
