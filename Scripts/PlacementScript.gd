@@ -1,12 +1,16 @@
 extends Camera3D
 
+# propertys
 @export var point_scene: PackedScene
 @export var phantom_scene: PackedScene
+@export var point_parent: Node
+
+# vars
 var phantom = null
+var can_place = false
 
 func _ready() -> void:
-	phantom = phantom_scene.instantiate()
-	get_parent().add_child.call_deferred(phantom)
+	disable_placement()
 
 func _process(_delta: float) -> void:
 	if phantom == null or !phantom.is_inside_tree():
@@ -24,9 +28,9 @@ func update_phantom_obj():
 
 	if result:
 		phantom.global_position = result.position
-		phantom.visible = true
+		can_place = true
 	else:
-		phantom.visible = true
+		can_place = false
 
 
 func _input(event):
@@ -41,7 +45,20 @@ func _input(event):
 
 		if result:
 			var collider = result.collider
-			if collider.is_in_group("field"):
+			if collider.is_in_group("field") and can_place:
 				var point = point_scene.instantiate()
-				get_parent().add_child(point)
+				point_parent.add_child(point)
 				point.global_position = result.position
+
+
+# helpers
+func enable_placement():
+	print("started placement")
+	phantom = phantom_scene.instantiate()
+	get_parent().add_child.call_deferred(phantom)
+	process_mode = Node.PROCESS_MODE_INHERIT
+
+func disable_placement():
+	print("ended placement")
+	get_parent().remove_child.call_deferred(phantom)
+	process_mode = Node.PROCESS_MODE_DISABLED

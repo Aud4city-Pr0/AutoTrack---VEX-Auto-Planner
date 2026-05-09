@@ -88,11 +88,12 @@ shape = SubResource("BoxShape3D_62mbl")
 [node name="Robor" parent="." unique_id=1922954782 instance=ExtResource("1_ikm06")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.309667, 0.26352787, 0.011531293)
 
-[node name="ObserverCam" type="Camera3D" parent="." unique_id=2110258843]
+[node name="ObserverCam" type="Camera3D" parent="." unique_id=2110258843 node_paths=PackedStringArray("point_parent")]
 transform = Transform3D(1, -2.012139e-08, -4.906556e-09, 2.012139e-08, 0.8877511, 0.46032375, -4.9065534e-09, -0.46032375, 0.8877511, -0.058899403, 3.264396, 4.806636)
 script = ExtResource("3_oxycb")
 point_scene = ExtResource("4_b03q4")
 phantom_scene = ExtResource("5_l8y8q")
+point_parent = NodePath("../PointParent")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1517965212]
 transform = Transform3D(-0.017911794, -0.6931754, 0.7205463, -0.01722607, 0.7207689, 0.6929614, -0.9996911, 0, -0.024850952, 5.5028515, 3.7049367, 0)
