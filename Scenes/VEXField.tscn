@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://chy7uvupy1sxk" path="res://Textures/VEX Ovrride Feild.png" id="1_62mbl"]
 [ext_resource type="PackedScene" uid="uid://bl22aavsn8toa" path="res://Prefabs/robor.tscn" id="1_ikm06"]
 [ext_resource type="Texture2D" uid="uid://bsehew7oev4ud" path="res://Textures/Skybox.png" id="2_m5pvo"]
-[ext_resource type="Script" uid="uid://duh0k0trxgxl5" path="res://Scenes/PlacementScript.gd" id="3_oxycb"]
+[ext_resource type="Script" uid="uid://duh0k0trxgxl5" path="res://Scripts/PlacementScript.gd" id="3_oxycb"]
 [ext_resource type="PackedScene" uid="uid://bra5yqsehtwm1" path="res://Prefabs/PointObject.tscn" id="4_b03q4"]
 [ext_resource type="PackedScene" uid="uid://deuuvfjkr4jkd" path="res://Prefabs/PhantomObject.tscn" id="5_l8y8q"]
 [ext_resource type="PackedScene" uid="uid://cpww74qudbjpr" path="res://Prefabs/ui.tscn" id="5_ncggb"]
