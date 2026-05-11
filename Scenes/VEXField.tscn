@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://deuuvfjkr4jkd" path="res://Prefabs/PhantomObject.tscn" id="5_l8y8q"]
 [ext_resource type="PackedScene" uid="uid://cpww74qudbjpr" path="res://Prefabs/ui.tscn" id="5_ncggb"]
 [ext_resource type="Material" uid="uid://bm6k8miaf4lla" path="res://Textures/PlaceMaterial.tres" id="6_pu81y"]
-[ext_resource type="Script" uid="uid://47xprjg5ofbd" path="res://Scripts/UI Scripts/UIScript.gd" id="6_ydrv4"]
 [ext_resource type="Material" uid="uid://c6vd5tm14slkd" path="res://Textures/UnplaceMaterial.tres" id="7_to7yo"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_shakw"]
@@ -107,7 +106,6 @@ light_energy = 4.96
 environment = SubResource("Environment_m5pvo")
 
 [node name="UI" parent="." unique_id=1466292623 node_paths=PackedStringArray("placmentScriptObject") instance=ExtResource("5_ncggb")]
-script = ExtResource("6_ydrv4")
 placmentScriptObject = NodePath("../ObserverCam")
 
 [node name="PointParent" type="Node" parent="." unique_id=615404697]

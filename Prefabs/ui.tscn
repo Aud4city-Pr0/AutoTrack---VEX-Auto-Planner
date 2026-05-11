@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cpww74qudbjpr"]
 
+[ext_resource type="Script" uid="uid://47xprjg5ofbd" path="res://Scripts/UI Scripts/UIScript.gd" id="1_ajyd5"]
+
 [node name="UI" type="Control" unique_id=1466292623]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ajyd5")
 
 [node name="CamPositionButton" type="Button" parent="." unique_id=1586248954]
 layout_mode = 1
@@ -21,15 +24,29 @@ grow_vertical = 0
 scale = Vector2(2.9541037, 3.1748414)
 text = "Cam"
 
-[node name="PointButton" type="Button" parent="." unique_id=1753915449]
+[node name="EnablePlacement" type="Button" parent="." unique_id=1753915449]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.90999997
 anchor_bottom = 0.90999997
-offset_left = 140.00002
-offset_top = -565.68
-offset_right = 242.00002
-offset_bottom = -534.68
+offset_left = 144.00005
+offset_top = -570.68
+offset_right = 246.00005
+offset_bottom = -539.68
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4603403, 3.010798)
+text = "Enable"
+
+[node name="PointButton" type="Button" parent="." unique_id=368985082]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.90999997
+anchor_bottom = 0.90999997
+offset_left = 306.0
+offset_top = -570.68
+offset_right = 408.0
+offset_bottom = -539.68
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.4603403, 3.010798)
@@ -40,12 +57,14 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.91
 anchor_bottom = 0.91
-offset_left = 292.0
-offset_top = -565.68
-offset_right = 415.0
-offset_bottom = -534.68
+offset_left = 463.00003
+offset_top = -570.68
+offset_right = 586.0
+offset_bottom = -539.68
 grow_vertical = 0
 scale = Vector2(1.4603403, 3.010798)
 text = "Remove Points"
 
-[connection signal="pressed" from="PointButton" to="." method="_on_point_button_pressed"]
+[connection signal="pressed" from="EnablePlacement" to="." method="_on_point_button_pressed"]
+[connection signal="pressed" from="PointButton" to="." method="_on_place_button_pressed"]
+[connection signal="pressed" from="RemoveButton" to="." method="_on_remove_button_pressed"]

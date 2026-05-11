@@ -8,10 +8,12 @@ extends Camera3D
 @export var notplace_material: Material
 
 # vars
+enum placementState {BUILD = 0, DESTROY = 1}
 var phantom = null
 var can_place = false
 var ray_collider = null
 var snapped_pos = Vector3(0, 0, 0)
+var current_mode = placementState.BUILD
 
 func _ready() -> void:
 	disable_placement()
@@ -42,10 +44,19 @@ func _process(_delta: float) -> void:
 		can_place = false
 	
 	if ray_collider:
-		if Input.is_action_just_pressed("PlacePoint") and can_place:
-			var point = point_scene.instantiate()
-			point_parent.add_child(point)
-			point.global_position = snapped_pos
+		if current_mode == placementState.BUILD:
+			if phantom == null:
+				enable_placement()
+			if Input.is_action_just_pressed("PlacePoint") and can_place:
+				var point = point_scene.instantiate()
+				point_parent.add_child(point)
+				point.global_position = snapped_pos
+		elif current_mode == placementState.DESTROY:
+			get_parent().remove_child.call_deferred(phantom)
+			if Input.is_action_just_pressed("PlacePoint"):
+				point_parent.remove_child(ray_collider)
+				print("removed point")
+
 
 
 # helpers
