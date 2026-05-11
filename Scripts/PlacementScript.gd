@@ -8,6 +8,8 @@ extends Camera3D
 # vars
 var phantom = null
 var can_place = false
+var ray_collider = null
+var snapped_pos = Vector3(0, 0, 0)
 
 func _ready() -> void:
 	disable_placement()
@@ -15,9 +17,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if phantom == null or !phantom.is_inside_tree():
 		return
-	update_phantom_obj()
-
-func update_phantom_obj():
 	var mouse_position = get_viewport().get_mouse_position()
 	var from = project_ray_origin(mouse_position)
 	var to = from + project_ray_normal(mouse_position) * 1000
@@ -27,28 +26,19 @@ func update_phantom_obj():
 	var result = space_state.intersect_ray(query)
 
 	if result:
-		phantom.global_position = result.position
+		ray_collider = result.collider
+		snapped_pos = result.position.snapped(Vector3(0.1, 0.1, 0.1))
+		phantom.global_position = snapped_pos
 		can_place = true
 	else:
+		ray_collider = null
 		can_place = false
-
-
-func _input(event):
-	if event is InputEventMouseButton and event.pressed:
-		var mouse_pos = event.position
-		var from = project_ray_origin(mouse_pos)
-		var to = from + project_ray_normal(mouse_pos) * 1000
-
-		var space_state = get_world_3d().direct_space_state
-		var query = PhysicsRayQueryParameters3D.create(from, to)
-		var result = space_state.intersect_ray(query)
-
-		if result:
-			var collider = result.collider
-			if collider.is_in_group("field") and can_place:
-				var point = point_scene.instantiate()
-				point_parent.add_child(point)
-				point.global_position = result.position
+	
+	if ray_collider and ray_collider.is_in_group("field"):
+		if Input.is_action_pressed("PlacePoint") and can_place:
+			var point = point_scene.instantiate()
+			point_parent.add_child(point)
+			point.global_position = snapped_pos
 
 
 # helpers
@@ -59,6 +49,7 @@ func enable_placement():
 	process_mode = Node.PROCESS_MODE_INHERIT
 
 func disable_placement():
-	print("ended placement")
-	get_parent().remove_child.call_deferred(phantom)
+	if phantom != null:
+		print("ended placement")
+		get_parent().remove_child.call_deferred(phantom)
 	process_mode = Node.PROCESS_MODE_DISABLED
