@@ -29,7 +29,7 @@ func _process(_delta: float) -> void:
 
 	if result:
 		ray_collider = result.collider
-		snapped_pos = result.position.snapped(Vector3(0.1, 0.1, 0.1))
+		snapped_pos = result.position.snapped(Vector3(0.3, 0.3, 0.3))
 		phantom.global_position = snapped_pos
 	else:
 		ray_collider = null
@@ -42,7 +42,7 @@ func _process(_delta: float) -> void:
 		can_place = false
 	
 	if ray_collider:
-		if Input.is_action_pressed("PlacePoint") and can_place:
+		if Input.is_action_just_pressed("PlacePoint") and can_place:
 			var point = point_scene.instantiate()
 			point_parent.add_child(point)
 			point.global_position = snapped_pos
