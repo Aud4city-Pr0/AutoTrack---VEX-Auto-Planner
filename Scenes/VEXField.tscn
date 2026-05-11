@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bra5yqsehtwm1" path="res://Prefabs/PointObject.tscn" id="4_b03q4"]
 [ext_resource type="PackedScene" uid="uid://deuuvfjkr4jkd" path="res://Prefabs/PhantomObject.tscn" id="5_l8y8q"]
 [ext_resource type="PackedScene" uid="uid://cpww74qudbjpr" path="res://Prefabs/ui.tscn" id="5_ncggb"]
+[ext_resource type="Material" uid="uid://bm6k8miaf4lla" path="res://Textures/UnplaceMaterial.tres" id="6_pu81y"]
 [ext_resource type="Script" uid="uid://47xprjg5ofbd" path="res://Scripts/UI Scripts/UIScript.gd" id="6_ydrv4"]
+[ext_resource type="Material" uid="uid://c6vd5tm14slkd" path="res://Textures/PlaceMaterial.tres" id="7_to7yo"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_shakw"]
 
@@ -94,6 +96,8 @@ script = ExtResource("3_oxycb")
 point_scene = ExtResource("4_b03q4")
 phantom_scene = ExtResource("5_l8y8q")
 point_parent = NodePath("../PointParent")
+place_material = ExtResource("6_pu81y")
+notplace_material = ExtResource("7_to7yo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1517965212]
 transform = Transform3D(-0.017911794, -0.6931754, 0.7205463, -0.01722607, 0.7207689, 0.6929614, -0.9996911, 0, -0.024850952, 5.5028515, 3.7049367, 0)

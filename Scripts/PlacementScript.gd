@@ -4,6 +4,8 @@ extends Camera3D
 @export var point_scene: PackedScene
 @export var phantom_scene: PackedScene
 @export var point_parent: Node
+@export var place_material: Material
+@export var notplace_material: Material
 
 # vars
 var phantom = null
@@ -29,12 +31,17 @@ func _process(_delta: float) -> void:
 		ray_collider = result.collider
 		snapped_pos = result.position.snapped(Vector3(0.1, 0.1, 0.1))
 		phantom.global_position = snapped_pos
-		can_place = true
 	else:
 		ray_collider = null
-		can_place = false
 	
 	if ray_collider and ray_collider.is_in_group("field"):
+		phantom.material_override = place_material
+		can_place = true
+	else:
+		phantom.material_override = notplace_material
+		can_place = false
+	
+	if ray_collider:
 		if Input.is_action_pressed("PlacePoint") and can_place:
 			var point = point_scene.instantiate()
 			point_parent.add_child(point)
