@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bra5yqsehtwm1" path="res://Prefabs/PointObject.tscn" id="4_b03q4"]
 [ext_resource type="PackedScene" uid="uid://deuuvfjkr4jkd" path="res://Prefabs/PhantomObject.tscn" id="5_l8y8q"]
 [ext_resource type="PackedScene" uid="uid://cpww74qudbjpr" path="res://Prefabs/ui.tscn" id="5_ncggb"]
-[ext_resource type="Material" uid="uid://bm6k8miaf4lla" path="res://Textures/UnplaceMaterial.tres" id="6_pu81y"]
+[ext_resource type="Material" uid="uid://bm6k8miaf4lla" path="res://Textures/PlaceMaterial.tres" id="6_pu81y"]
 [ext_resource type="Script" uid="uid://47xprjg5ofbd" path="res://Scripts/UI Scripts/UIScript.gd" id="6_ydrv4"]
-[ext_resource type="Material" uid="uid://c6vd5tm14slkd" path="res://Textures/PlaceMaterial.tres" id="7_to7yo"]
+[ext_resource type="Material" uid="uid://c6vd5tm14slkd" path="res://Textures/UnplaceMaterial.tres" id="7_to7yo"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_shakw"]
 
