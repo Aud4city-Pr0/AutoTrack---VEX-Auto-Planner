@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://47xprjg5ofbd" path="res://Scripts/UI Scripts/UIScript.gd" id="1_ajyd5"]
 
-[node name="UI" type="Control" unique_id=1466292623]
+[node name="UI" type="Control" unique_id=1466292623 node_paths=PackedStringArray("placeBtn", "removeBtn")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,60 +10,65 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ajyd5")
-
-[node name="CamPositionButton" type="Button" parent="." unique_id=1586248954]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.91
-anchor_bottom = 0.91
-offset_left = 9.0
-offset_top = -570.68
-offset_right = 52.0
-offset_bottom = -539.68
-grow_vertical = 0
-scale = Vector2(2.9541037, 3.1748414)
-text = "Cam"
+placeBtn = NodePath("PointButton")
+removeBtn = NodePath("RemoveButton")
 
 [node name="EnablePlacement" type="Button" parent="." unique_id=1753915449]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.90999997
-anchor_bottom = 0.90999997
-offset_left = 144.00005
-offset_top = -570.68
-offset_right = 246.00005
-offset_bottom = -539.68
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -106.0
+offset_right = 126.0
+offset_bottom = -18.0
+grow_vertical = 0
+text = "Build"
+
+[node name="CamPositionButton" type="Button" parent="." unique_id=1586248954]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 447.0
+offset_top = 218.0
+offset_right = 490.0
+offset_bottom = 249.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.4603403, 3.010798)
-text = "Enable"
+scale = Vector2(2.9541037, 3.1748414)
+text = "Cam"
 
 [node name="PointButton" type="Button" parent="." unique_id=368985082]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.90999997
 anchor_bottom = 0.90999997
-offset_left = 306.0
-offset_top = -570.68
-offset_right = 408.0
-offset_bottom = -539.68
+offset_left = 18.0
+offset_top = -147.68
+offset_right = 77.57512
+offset_bottom = -116.67999
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.4603403, 3.010798)
-text = "Place Points"
+text = "Place"
 
 [node name="RemoveButton" type="Button" parent="." unique_id=1473146507]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.91
 anchor_bottom = 0.91
-offset_left = 463.00003
-offset_top = -570.68
-offset_right = 586.0
-offset_bottom = -539.68
+offset_left = 117.00006
+offset_top = -53.679993
+offset_right = 188.00006
+offset_bottom = -22.679993
 grow_vertical = 0
 scale = Vector2(1.4603403, 3.010798)
-text = "Remove Points"
+text = "Remove"
 
 [connection signal="pressed" from="EnablePlacement" to="." method="_on_point_button_pressed"]
 [connection signal="pressed" from="PointButton" to="." method="_on_place_button_pressed"]
