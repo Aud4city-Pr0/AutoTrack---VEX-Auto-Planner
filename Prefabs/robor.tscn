@@ -1,20 +1,14 @@
 [gd_scene format=3 uid="uid://bl22aavsn8toa"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_ob4ur"]
+[ext_resource type="Material" uid="uid://cmkvnudymbx2l" path="res://Textures/RoborMaterial.tres" id="1_4rgns"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ob4ur"]
-albedo_color = Color(1, 0.24313726, 0.21176471, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_2wvyq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ob4ur"]
-
-[node name="Robor" type="RigidBody3D" unique_id=1398523619]
+[node name="Robor" type="Node3D" unique_id=215345827]
 process_mode = 3
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=630694294]
 transform = Transform3D(0.457, 0, 0, 0, 0.457, 0, 0, 0, 0.457, 0, 0, 0)
-mesh = SubResource("BoxMesh_ob4ur")
-surface_material_override/0 = SubResource("StandardMaterial3D_ob4ur")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=707069146]
+[node name="Node3D" type="MeshInstance3D" parent="." unique_id=846073105]
 transform = Transform3D(0.457, 0, 0, 0, 0.457, 0, 0, 0, 0.457, 0, 0, 0)
-shape = SubResource("BoxShape3D_ob4ur")
+mesh = SubResource("BoxMesh_2wvyq")
+surface_material_override/0 = ExtResource("1_4rgns")
