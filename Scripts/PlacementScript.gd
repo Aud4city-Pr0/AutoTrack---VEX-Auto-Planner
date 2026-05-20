@@ -19,8 +19,8 @@ func _ready() -> void:
 	disable_placement()
 
 func _process(_delta: float) -> void:
-	print_debug("Current mode is: " + str(current_mode))
 	if phantom == null or !phantom.is_inside_tree():
+		print("no phantom")
 		return
 	var mouse_position = get_viewport().get_mouse_position()
 	var from = project_ray_origin(mouse_position)
@@ -46,18 +46,15 @@ func _process(_delta: float) -> void:
 	
 	if ray_collider:
 		if current_mode == placementState.BUILD:
-			if phantom == null:
-				phantom = phantom_scene.instantiate()
-				get_parent().add_child.call_deferred(phantom)
 			if Input.is_action_just_pressed("PlacePoint") and can_place:
 				var point = point_scene.instantiate()
 				point_parent.add_child(point)
 				point.global_position = snapped_pos
 		elif current_mode == placementState.DESTROY:
-			get_parent().remove_child.call_deferred(phantom)
 			if Input.is_action_just_pressed("PlacePoint"):
-				point_parent.remove_child(ray_collider)
-				print("removed point")
+				var target = ray_collider.get_parent()
+				if target and target.is_in_group("point"):
+					target.queue_free()
 
 
 

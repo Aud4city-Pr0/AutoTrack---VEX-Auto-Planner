@@ -5,7 +5,14 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7njip"]
 albedo_color = Color(6.7383053e-06, 0.6527079, 0.87831336, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" unique_id=1507008150]
+[sub_resource type="BoxShape3D" id="BoxShape3D_7njip"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" unique_id=1507008150 groups=["point"]]
 transform = Transform3D(0.14, 0, 0, 0, 0.14, 0, 0, 0, 0.14, 0, 0.068802446, 0)
 mesh = SubResource("BoxMesh_7njip")
 surface_material_override/0 = SubResource("StandardMaterial3D_7njip")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1157238230]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1568337786]
+shape = SubResource("BoxShape3D_7njip")
