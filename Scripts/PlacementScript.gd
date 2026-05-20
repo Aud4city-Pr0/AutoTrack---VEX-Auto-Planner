@@ -6,6 +6,7 @@ extends Camera3D
 @export var point_parent: Node
 @export var place_material: Material
 @export var notplace_material: Material
+@export var snap_to_grid = false
 
 # vars
 enum placementState {BUILD = 0, DESTROY = 1}
@@ -32,8 +33,11 @@ func _process(_delta: float) -> void:
 
 	if result:
 		ray_collider = result.collider
-		snapped_pos = result.position.snapped(Vector3(0.3, 0.3, 0.3))
-		phantom.global_position = snapped_pos
+		if snap_to_grid:
+			snapped_pos = result.position.snapped(Vector3(0.3, 0.3, 0.3))
+			phantom.global_position = snapped_pos
+		else:
+			phantom.global_position = result.position
 	else:
 		ray_collider = null
 	
@@ -49,9 +53,9 @@ func _process(_delta: float) -> void:
 			if Input.is_action_just_pressed("PlacePoint") and can_place:
 				var point = point_scene.instantiate()
 				point_parent.add_child(point)
-				point.global_position = snapped_pos
+				point.global_position = phantom.global_position
 		elif current_mode == placementState.DESTROY:
-			if Input.is_action_just_pressed("PlacePoint"):
+			if Input.is_action_pressed("PlacePoint"):
 				var target = ray_collider.get_parent()
 				if target and target.is_in_group("point"):
 					target.queue_free()
