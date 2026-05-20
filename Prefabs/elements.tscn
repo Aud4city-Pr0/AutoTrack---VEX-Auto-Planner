@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c5j5qq0c3cbxk"]
+
+[ext_resource type="PackedScene" uid="uid://5yjwbcb0h2l8" path="res://Models/Field Assembly/Field Assembly - Elements/Elements.fbx" id="1_ebs16"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q1eaj"]
+
+[node name="Elements" unique_id=541963431 instance=ExtResource("1_ebs16")]
+
+[node name="mesh2284_003" parent="." index="2861" unique_id=1076930408]
+surface_material_override/0 = SubResource("StandardMaterial3D_q1eaj")
