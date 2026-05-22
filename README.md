@@ -41,7 +41,7 @@ for openSUSE
 to install git for fedora/nobora, run:
 ``` sudo dnf install git```
 for OpenSUSE:
-``` sudo zypper install```
+``` sudo zypper install git```
 
 # Arch Linux #
 To install godot for Arch Linux or Arch based distros, you will have to run:
