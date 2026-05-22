@@ -15,8 +15,10 @@ var can_place = false
 var ray_collider = null
 var snapped_pos = Vector3(0, 0, 0)
 var current_mode = placementState.BUILD
+var curve_path: Curve3D
 
 func _ready() -> void:
+	curve_path = Curve3D.new()
 	disable_placement()
 
 func _process(_delta: float) -> void:
@@ -54,6 +56,7 @@ func _process(_delta: float) -> void:
 				var point = point_scene.instantiate()
 				point_parent.add_child(point)
 				point.global_position = phantom.global_position
+				curve_path.add_point(to_local(point.global_position))
 		elif current_mode == placementState.DESTROY:
 			if Input.is_action_pressed("PlacePoint"):
 				var target = ray_collider.get_parent()
@@ -74,3 +77,6 @@ func disable_placement():
 		print("ended placement")
 		get_parent().remove_child.call_deferred(phantom)
 	process_mode = Node.PROCESS_MODE_DISABLED
+
+func get_current_curve() -> Curve3D:
+	return curve_path

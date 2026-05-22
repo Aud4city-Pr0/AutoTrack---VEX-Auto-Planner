@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://47xprjg5ofbd" path="res://Scripts/UI Scripts/UIScript.gd" id="1_ajyd5"]
 
-[node name="UI" type="Control" unique_id=1466292623 node_paths=PackedStringArray("placeBtn", "removeBtn")]
+[node name="UI" type="Control" unique_id=1466292623 node_paths=PackedStringArray("placeBtn", "removeBtn", "genBtn")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_ajyd5")
 placeBtn = NodePath("PointButton")
 removeBtn = NodePath("RemoveButton")
+genBtn = NodePath("GeneratePath")
 
 [node name="EnablePlacement" type="Button" parent="." unique_id=1753915449]
 layout_mode = 1
@@ -62,14 +63,29 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.91
 anchor_bottom = 0.91
-offset_left = 117.00006
+offset_left = 137.0
 offset_top = -53.679993
-offset_right = 188.00006
+offset_right = 208.0
 offset_bottom = -22.679993
 grow_vertical = 0
 scale = Vector2(1.4603403, 3.010798)
 text = "Remove"
 
+[node name="GeneratePath" type="Button" parent="." unique_id=988792277]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.91
+anchor_bottom = 0.91
+offset_left = 122.00001
+offset_top = -155.68002
+offset_right = 193.0
+offset_bottom = -124.68002
+grow_vertical = 0
+scale = Vector2(1.4603403, 3.010798)
+text = "Gen"
+
 [connection signal="pressed" from="EnablePlacement" to="." method="_on_point_button_pressed"]
 [connection signal="pressed" from="PointButton" to="." method="_on_place_button_pressed"]
 [connection signal="pressed" from="RemoveButton" to="." method="_on_remove_button_pressed"]
+[connection signal="pressed" from="GeneratePath" to="." method="_on_gen_button_pressed"]
