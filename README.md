@@ -26,7 +26,7 @@ Then, you will be good to go and start making commits
 It is recomended to install the version from [steam](https://store.steampowered.com/app/404790/Godot_Engine/) or the [godot website](https://godotengine.org/)
 
 Then, after installing godot, install git using:
-```sudo apt install git``
+```sudo apt install git```
 
 # Fedora/OpenSUSE/Nobora
 If you are on Fedora, Nobora or OpenSUSE, then you can install godot with the method above or run:
