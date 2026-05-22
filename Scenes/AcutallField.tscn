@@ -30,7 +30,7 @@ sky = SubResource("Sky_m5pvo")
 [node name="Field" type="Node3D" parent="." unique_id=813905958 groups=["field"]]
 
 [node name="FieldAssemblyWalls" type="MeshInstance3D" parent="Field" unique_id=593533698]
-transform = Transform3D(3.658, 0, 0, 0, 3.658, 0, 0, 0, 3.658, 0.0018708706, 0.020623028, -0.000119268894)
+transform = Transform3D(3.658, 0, 0, 0, 3.658, 0, 0, 0, 3.658, 0.0008366108, 0.025419414, -0.0027783513)
 mesh = ExtResource("1_x2vbo")
 
 [node name="Elements" parent="Field" unique_id=900339205 instance=ExtResource("2_nbpwc")]
@@ -68,11 +68,12 @@ path = NodePath("../Path3D")
 [node name="PointParent" type="Node" parent="." unique_id=1769150811]
 
 [node name="Path3D" type="Path3D" parent="." unique_id=1432365197]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8312013, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4930425, 0.06410766, 0)
 debug_custom_color = Color(1, 0, 0, 1)
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=455842185]
+transform = Transform3D(0.06600339, 0, 0.9978194, 0, 1, 0, -0.9978194, 0, 0.06600339, 0, 0, 0)
 use_model_front = true
 
 [node name="Robor" parent="Path3D/PathFollow3D" unique_id=215345827 instance=ExtResource("10_24fwg")]
-transform = Transform3D(-1.580756, 0, -2.386875e-07, 0, 1.580756, 0, 2.386875e-07, 0, -1.580756, -4.3113813, 0.41201055, 0.13970234)
+transform = Transform3D(1.3789997, 0, -7.450581e-09, 0, 1.379, 0, 7.450581e-09, 0, 1.3789997, 0.021285653, 0.2792679, 0.32179117)

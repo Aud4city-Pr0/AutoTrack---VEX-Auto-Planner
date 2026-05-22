@@ -34,6 +34,8 @@ func _on_remove_button_pressed():
 
 func _on_gen_button_pressed():
 	var created_curve = placmentScriptObject.get_current_curve()
-	if created_curve:
+	if created_curve and created_curve.get_baked_length() >= 1.0:
 		print("setting curve")
 		path.curve = created_curve
+	else:
+		print("You need at least one point to create a route!")
