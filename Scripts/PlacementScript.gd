@@ -7,6 +7,7 @@ extends Camera3D
 @export var place_material: Material
 @export var notplace_material: Material
 @export var snap_to_grid = false
+@export var rotation_amount = 45.0
 
 # vars
 enum placementState {BUILD = 0, DESTROY = 1}
@@ -16,6 +17,7 @@ var ray_collider = null
 var snapped_pos = Vector3(0, 0, 0)
 var current_mode = placementState.BUILD
 var curve_path: Curve3D
+var current_rotation = 0.0
 
 func _ready() -> void:
 	curve_path = Curve3D.new()
@@ -32,6 +34,10 @@ func _process(_delta: float) -> void:
 	var space_state = get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(from, to)
 	var result = space_state.intersect_ray(query)
+
+	if Input.is_action_just_pressed("Rotate"):
+		current_rotation += rotation_amount
+		phantom.rotate(Vector3.UP, current_rotation)
 
 	if result:
 		ray_collider = result.collider

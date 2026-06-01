@@ -30,7 +30,7 @@ sky = SubResource("Sky_m5pvo")
 [node name="Field" type="Node3D" parent="." unique_id=813905958 groups=["field"]]
 
 [node name="FieldAssemblyWalls" type="MeshInstance3D" parent="Field" unique_id=593533698]
-transform = Transform3D(3.658, 0, 0, 0, 3.658, 0, 0, 0, 3.658, 0.0008366108, 0.025419414, -0.0027783513)
+transform = Transform3D(3.7544692, 0, 0, 0, 3.7544692, 0, 0, 0, 3.7544692, 0.0008366108, 0.025419414, -0.0027783513)
 mesh = ExtResource("1_x2vbo")
 
 [node name="Elements" parent="Field" unique_id=900339205 instance=ExtResource("2_nbpwc")]
