@@ -61,14 +61,15 @@ light_energy = 2.865
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1598090034]
 environment = SubResource("Environment_ce8k0")
 
-[node name="UI" parent="." unique_id=1466292623 node_paths=PackedStringArray("placmentScriptObject", "path") instance=ExtResource("9_y8xr4")]
+[node name="UI" parent="." unique_id=1466292623 node_paths=PackedStringArray("placmentScriptObject", "path", "robot_model") instance=ExtResource("9_y8xr4")]
 placmentScriptObject = NodePath("../ObserverCam")
 path = NodePath("../Path3D")
+robot_model = NodePath("../Path3D/PathFollow3D/Robor")
 
 [node name="PointParent" type="Node" parent="." unique_id=1769150811]
 
 [node name="Path3D" type="Path3D" parent="." unique_id=1432365197]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4930425, 0.06410766, 0)
+top_level = true
 debug_custom_color = Color(1, 0, 0, 1)
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=455842185]
@@ -77,3 +78,4 @@ use_model_front = true
 
 [node name="Robor" parent="Path3D/PathFollow3D" unique_id=215345827 instance=ExtResource("10_24fwg")]
 transform = Transform3D(1.3789997, 0, -7.450581e-09, 0, 1.379, 0, 7.450581e-09, 0, 1.3789997, 0.021285653, 0.2792679, 0.32179117)
+visible = false

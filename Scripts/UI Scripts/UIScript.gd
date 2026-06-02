@@ -7,7 +7,7 @@ var isEnabled = false
 @export var removeBtn: Button
 @export var genBtn: Button
 @export var path: Path3D
-
+@export var robot_model: Node3D
 
 func _on_point_button_pressed():
 	if isEnabled == false:
@@ -37,5 +37,6 @@ func _on_gen_button_pressed():
 	if created_curve and created_curve.get_baked_length() >= 1.0:
 		print("setting curve")
 		path.curve = created_curve
+		robot_model.visible = true
 	else:
 		print("You need at least one point to create a route!")
