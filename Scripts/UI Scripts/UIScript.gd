@@ -14,15 +14,11 @@ func _on_point_button_pressed():
 	if isEnabled == false:
 		placmentScriptObject.enable_placement()
 		isEnabled = true
-		placeBtn.show()
-		removeBtn.show()
-		genBtn.show()
+		_set_child_visiblity(true)
 	elif isEnabled == true:
 		placmentScriptObject.disable_placement()
 		isEnabled = false
-		placeBtn.hide()
-		removeBtn.hide()
-		genBtn.hide()
+		_set_child_visiblity(false)
 
 func _on_place_button_pressed():
 	if isEnabled == true:
@@ -42,3 +38,16 @@ func _on_gen_button_pressed():
 		robot_path.process_mode = Node.PROCESS_MODE_INHERIT
 	else:
 		print("You need at least one point to create a route!")
+
+func _on_snap_enabled(snap_status):
+	print(snap_status)
+	placmentScriptObject.snap_to_grid = snap_status
+
+
+
+func _set_child_visiblity(status: bool):
+	for child in get_children():
+		if status == true and child.is_in_group("build controlls"):
+			child.show()
+		elif status == false and child.is_in_group("build controlls"):
+			child.hide()
