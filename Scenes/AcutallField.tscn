@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bsehew7oev4ud" path="res://Textures/Skybox.png" id="8_dc6yy"]
 [ext_resource type="PackedScene" uid="uid://cpww74qudbjpr" path="res://Prefabs/ui.tscn" id="9_y8xr4"]
 [ext_resource type="PackedScene" uid="uid://bl22aavsn8toa" path="res://Prefabs/robor.tscn" id="10_24fwg"]
+[ext_resource type="Script" uid="uid://clxma8kejunvm" path="res://Scripts/RoborMovement.gd" id="11_24fwg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbpwc"]
 size = Vector3(13.098114, 0.22351074, 13.308136)
@@ -61,10 +62,11 @@ light_energy = 2.865
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1598090034]
 environment = SubResource("Environment_ce8k0")
 
-[node name="UI" parent="." unique_id=1466292623 node_paths=PackedStringArray("placmentScriptObject", "path", "robot_model") instance=ExtResource("9_y8xr4")]
+[node name="UI" parent="." unique_id=1466292623 node_paths=PackedStringArray("placmentScriptObject", "path", "robot_model", "robot_path") instance=ExtResource("9_y8xr4")]
 placmentScriptObject = NodePath("../ObserverCam")
 path = NodePath("../Path3D")
 robot_model = NodePath("../Path3D/PathFollow3D/Robor")
+robot_path = NodePath("../Path3D/PathFollow3D")
 
 [node name="PointParent" type="Node" parent="." unique_id=1769150811]
 
@@ -75,6 +77,8 @@ debug_custom_color = Color(1, 0, 0, 1)
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=455842185]
 transform = Transform3D(0.06600339, 0, 0.9978194, 0, 1, 0, -0.9978194, 0, 0.06600339, 0, 0, 0)
 use_model_front = true
+loop = false
+script = ExtResource("11_24fwg")
 
 [node name="Robor" parent="Path3D/PathFollow3D" unique_id=215345827 instance=ExtResource("10_24fwg")]
 transform = Transform3D(1.3789997, 0, -7.450581e-09, 0, 1.379, 0, 7.450581e-09, 0, 1.3789997, 0.021285653, 0.2792679, 0.32179117)
