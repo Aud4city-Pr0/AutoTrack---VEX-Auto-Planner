@@ -62,6 +62,7 @@ func _process(_delta: float) -> void:
 				var point = point_scene.instantiate()
 				point_parent.add_child(point)
 				point.global_position = phantom.global_position
+				point.global_rotation = phantom.global_rotation
 				curve_path.add_point(Vector3(point.global_position.x, 0, point.global_position.z))
 		elif current_mode == placementState.DESTROY:
 			if Input.is_action_pressed("PlacePoint"):
