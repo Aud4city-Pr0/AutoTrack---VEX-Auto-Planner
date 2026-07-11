@@ -42,7 +42,7 @@ grow_vertical = 2
 scale = Vector2(2.9541037, 3.1748414)
 text = "Cam"
 
-[node name="PointButton" type="Button" parent="." unique_id=368985082 groups=["build controlls"]]
+[node name="PointButton" type="Button" parent="." unique_id=368985082]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -57,7 +57,7 @@ grow_vertical = 2
 scale = Vector2(1.4603403, 3.010798)
 text = "Place"
 
-[node name="RemoveButton" type="Button" parent="." unique_id=1473146507 groups=["build controlls"]]
+[node name="RemoveButton" type="Button" parent="." unique_id=1473146507]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -71,7 +71,7 @@ grow_vertical = 0
 scale = Vector2(1.4603403, 3.010798)
 text = "Remove"
 
-[node name="GeneratePath" type="Button" parent="." unique_id=988792277 groups=["build controlls"]]
+[node name="GeneratePath" type="Button" parent="." unique_id=988792277]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -85,17 +85,7 @@ grow_vertical = 0
 scale = Vector2(1.4603403, 3.010798)
 text = "Gen"
 
-[node name="CheckBox" type="CheckBox" parent="." unique_id=2088689900 groups=["build controlls"]]
-visible = false
-layout_mode = 0
-offset_left = 19.0
-offset_top = 413.0
-offset_right = 121.0
-offset_bottom = 437.0
-text = "snaping"
-
 [connection signal="pressed" from="EnablePlacement" to="." method="_on_point_button_pressed"]
 [connection signal="pressed" from="PointButton" to="." method="_on_place_button_pressed"]
 [connection signal="pressed" from="RemoveButton" to="." method="_on_remove_button_pressed"]
 [connection signal="pressed" from="GeneratePath" to="." method="_on_gen_button_pressed"]
-[connection signal="toggled" from="CheckBox" to="." method="_on_snap_enabled"]
