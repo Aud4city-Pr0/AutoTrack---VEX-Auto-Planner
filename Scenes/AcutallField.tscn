@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://haiq4nbywkqj"]
 
 [ext_resource type="ArrayMesh" uid="uid://b0gtckuvytmoy" path="res://Models/Field Assembly/Field Assembly - Walls.obj" id="1_x2vbo"]
-[ext_resource type="PackedScene" uid="uid://5yjwbcb0h2l8" path="res://Models/Field Assembly/Field Assembly - Elements/Elements.fbx" id="2_nbpwc"]
+[ext_resource type="PackedScene" uid="uid://q1oxjsl5smhj" path="res://Scenes/elements.tscn" id="3_24fwg"]
 [ext_resource type="Script" uid="uid://duh0k0trxgxl5" path="res://Scripts/PlacementScript.gd" id="3_m1qsn"]
 [ext_resource type="PackedScene" uid="uid://us71108kvack" path="res://Models/Field Assembly/Field Assembly - Elements/CupsAndPins.glb" id="3_y8xr4"]
 [ext_resource type="PackedScene" uid="uid://bra5yqsehtwm1" path="res://Prefabs/PointObject.tscn" id="4_xx7qs"]
@@ -34,9 +34,6 @@ sky = SubResource("Sky_m5pvo")
 transform = Transform3D(3.7544692, 0, 0, 0, 3.7544692, 0, 0, 0, 3.7544692, 0.0008366108, 0.025419414, -0.0027783513)
 mesh = ExtResource("1_x2vbo")
 
-[node name="Elements" parent="Field" unique_id=900339205 instance=ExtResource("2_nbpwc")]
-transform = Transform3D(3.658, 0, 0, 0, 3.658, 0, 0, 0, 3.658, 0, 0.020023823, 0)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="Field" unique_id=1268847913 groups=["field"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Field/StaticBody3D" unique_id=185703563]
@@ -45,6 +42,9 @@ shape = SubResource("BoxShape3D_nbpwc")
 
 [node name="CupsAndPins" parent="Field" unique_id=1592394954 instance=ExtResource("3_y8xr4")]
 transform = Transform3D(3.658, 0, 0, 0, 3.658, 0, 0, 0, 3.658, 0, 0, 0)
+
+[node name="Elements" parent="Field" unique_id=1812569916 instance=ExtResource("3_24fwg")]
+transform = Transform3D(3.754, 0, 0, 0, 3.754, 0, 0, 0, 3.754, 0, 0, 0)
 
 [node name="ObserverCam" type="Camera3D" parent="." unique_id=1764024990 node_paths=PackedStringArray("point_parent")]
 transform = Transform3D(1, 0, 0, 0, 0.9311577, 0.3646168, 0, -0.3646168, 0.9311577, -0.058899403, 5.7908278, 9.622017)

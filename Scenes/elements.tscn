@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://q1oxjsl5smhj"]
+
+[ext_resource type="PackedScene" uid="uid://b6vvs0sx4sh8f" path="res://Models/Field Assembly/Field Assembly - Elements/Elements.glb" id="1_ebs16"]
+
+[node name="Elements" unique_id=1812569916 instance=ExtResource("1_ebs16")]
