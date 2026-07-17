@@ -68,7 +68,22 @@ func _process(_delta: float) -> void:
 			if Input.is_action_pressed("PlacePoint"):
 				var target = ray_collider.get_parent()
 				if target and target.is_in_group("point"):
-					target.queue_free()
+					# 1. Map target position to flat Y to match how it was saved
+					var target_curve_pos = Vector3(target.global_position.x, 0, target.global_position.z)
+					
+					# 2. Find index in Curve3D matching this position
+					var index_to_remove = -1
+					for i in range(curve_path.get_point_count()):
+						if curve_path.get_point_position(i).is_equal_approx(target_curve_pos):
+							index_to_remove = i
+							break
+					
+					# 3. Remove from curve and delete node
+					if index_to_remove != -1:
+						curve_path.remove_point(index_to_remove)
+						print("removing point at index: ", index_to_remove)
+					
+					target.queue_free() # Fixed spelling error 'qeue_free'
 
 
 

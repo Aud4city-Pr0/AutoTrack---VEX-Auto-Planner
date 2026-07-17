@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://47xprjg5ofbd" path="res://Scripts/UI Scripts/UIScript.gd" id="1_ajyd5"]
 
-[node name="UI" type="Control" unique_id=1466292623 node_paths=PackedStringArray("placeBtn", "removeBtn", "genBtn")]
+[node name="UI" type="Control" unique_id=1466292623 node_paths=PackedStringArray("placeBtn", "removeBtn", "genBtn", "build_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,21 +10,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ajyd5")
-placeBtn = NodePath("PointButton")
-removeBtn = NodePath("RemoveButton")
-genBtn = NodePath("GeneratePath")
-
-[node name="EnablePlacement" type="Button" parent="." unique_id=1753915449]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = -106.0
-offset_right = 126.0
-offset_bottom = -18.0
-grow_vertical = 0
-text = "Build"
+placeBtn = NodePath("VBoxContainer/PointButton")
+removeBtn = NodePath("VBoxContainer/RemoveButton")
+genBtn = NodePath("VBoxContainer/GeneratePath")
+build_container = NodePath("VBoxContainer")
 
 [node name="CamPositionButton" type="Button" parent="." unique_id=1586248954]
 layout_mode = 1
@@ -42,60 +31,42 @@ grow_vertical = 2
 scale = Vector2(2.9541037, 3.1748414)
 text = "Cam"
 
-[node name="PointButton" type="Button" parent="." unique_id=368985082 groups=["build controlls"]]
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1694745861]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.90999997
-anchor_bottom = 0.90999997
-offset_left = 18.0
-offset_top = -147.68
-offset_right = 77.57512
-offset_bottom = -116.67999
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.4603403, 3.010798)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -243.0
+offset_right = 134.0
+grow_vertical = 0
+alignment = 2
+
+[node name="EnablePlacement" type="Button" parent="VBoxContainer" unique_id=1753915449]
+layout_mode = 2
+text = "Build"
+
+[node name="PointButton" type="Button" parent="VBoxContainer" unique_id=368985082 groups=["build controlls"]]
+visible = false
+layout_mode = 2
 text = "Place"
 
-[node name="RemoveButton" type="Button" parent="." unique_id=1473146507 groups=["build controlls"]]
+[node name="GeneratePath" type="Button" parent="VBoxContainer" unique_id=988792277 groups=["build controlls"]]
 visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.91
-anchor_bottom = 0.91
-offset_left = 137.0
-offset_top = -53.679993
-offset_right = 208.0
-offset_bottom = -22.679993
-grow_vertical = 0
-scale = Vector2(1.4603403, 3.010798)
-text = "Remove"
-
-[node name="GeneratePath" type="Button" parent="." unique_id=988792277 groups=["build controlls"]]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.91
-anchor_bottom = 0.91
-offset_left = 122.00001
-offset_top = -155.68002
-offset_right = 193.0
-offset_bottom = -124.68002
-grow_vertical = 0
-scale = Vector2(1.4603403, 3.010798)
+layout_mode = 2
 text = "Gen"
 
-[node name="CheckBox" type="CheckBox" parent="." unique_id=2088689900 groups=["build controlls"]]
+[node name="RemoveButton" type="Button" parent="VBoxContainer" unique_id=1473146507 groups=["build controlls"]]
 visible = false
-layout_mode = 0
-offset_left = 19.0
-offset_top = 413.0
-offset_right = 121.0
-offset_bottom = 437.0
+layout_mode = 2
+text = "Remove"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer" unique_id=2088689900 groups=["build controlls"]]
+visible = false
+layout_mode = 2
 text = "snaping"
 
-[connection signal="pressed" from="EnablePlacement" to="." method="_on_point_button_pressed"]
-[connection signal="pressed" from="PointButton" to="." method="_on_place_button_pressed"]
-[connection signal="pressed" from="RemoveButton" to="." method="_on_remove_button_pressed"]
-[connection signal="pressed" from="GeneratePath" to="." method="_on_gen_button_pressed"]
-[connection signal="toggled" from="CheckBox" to="." method="_on_snap_enabled"]
+[connection signal="pressed" from="VBoxContainer/EnablePlacement" to="." method="_on_point_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PointButton" to="." method="_on_place_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GeneratePath" to="." method="_on_gen_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RemoveButton" to="." method="_on_remove_button_pressed"]
+[connection signal="toggled" from="VBoxContainer/CheckBox" to="." method="_on_snap_enabled"]

@@ -9,6 +9,7 @@ var isEnabled = false
 @export var path: Path3D
 @export var robot_model: Node3D
 @export var robot_path: PathFollow3D
+@export var build_container: VBoxContainer
 
 func _on_point_button_pressed():
 	if isEnabled == false:
@@ -46,7 +47,8 @@ func _on_snap_enabled(snap_status):
 
 
 func _set_child_visiblity(status: bool):
-	for child in get_children():
+	for child in build_container.get_children():
+		print(child)
 		if status == true and child.is_in_group("build controlls"):
 			child.show()
 		elif status == false and child.is_in_group("build controlls"):
