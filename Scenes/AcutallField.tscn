@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://deuuvfjkr4jkd" path="res://Prefabs/PhantomObject.tscn" id="5_qpdj1"]
 [ext_resource type="Material" uid="uid://bm6k8miaf4lla" path="res://Textures/PlaceMaterial.tres" id="6_dc6yy"]
 [ext_resource type="Material" uid="uid://c6vd5tm14slkd" path="res://Textures/UnplaceMaterial.tres" id="7_y8xr4"]
-[ext_resource type="Texture2D" uid="uid://bsehew7oev4ud" path="res://Textures/Skybox.png" id="8_dc6yy"]
+[ext_resource type="Texture2D" uid="uid://c12nq27xqi41c" path="res://Textures/AllSkyFree_Sky_OvercastLow_Equirect.png" id="9_24fwg"]
 [ext_resource type="PackedScene" uid="uid://cpww74qudbjpr" path="res://Prefabs/ui.tscn" id="9_y8xr4"]
 [ext_resource type="PackedScene" uid="uid://bl22aavsn8toa" path="res://Prefabs/robor.tscn" id="10_24fwg"]
 [ext_resource type="Script" uid="uid://clxma8kejunvm" path="res://Scripts/RoborMovement.gd" id="11_24fwg"]
@@ -17,7 +17,7 @@
 size = Vector3(13.098114, 0.22351074, 13.308136)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8y11l"]
-panorama = ExtResource("8_dc6yy")
+panorama = ExtResource("9_24fwg")
 
 [sub_resource type="Sky" id="Sky_m5pvo"]
 sky_material = SubResource("PanoramaSkyMaterial_8y11l")

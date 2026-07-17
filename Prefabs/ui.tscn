@@ -2,7 +2,13 @@
 
 [ext_resource type="Script" uid="uid://47xprjg5ofbd" path="res://Scripts/UI Scripts/UIScript.gd" id="1_ajyd5"]
 
-[node name="UI" type="Control" unique_id=1466292623 node_paths=PackedStringArray("placeBtn", "removeBtn", "genBtn", "build_container")]
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_ajyd5"]
+number_color = Color(0, 0.7019608, 0.2901961, 1)
+symbol_color = Color(0.7218587, 0.7218587, 0.7218587, 1)
+function_color = Color(0.6053049, 0.20010158, 0.14278021, 1)
+member_variable_color = Color(0.69135684, 0.6913568, 0.69135684, 1)
+
+[node name="UI" type="Control" unique_id=1466292623 node_paths=PackedStringArray("placeBtn", "removeBtn", "genBtn", "build_container", "code_display")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +20,7 @@ placeBtn = NodePath("VBoxContainer/PointButton")
 removeBtn = NodePath("VBoxContainer/RemoveButton")
 genBtn = NodePath("VBoxContainer/GeneratePath")
 build_container = NodePath("VBoxContainer")
+code_display = NodePath("Entered Code")
 
 [node name="CamPositionButton" type="Button" parent="." unique_id=1586248954]
 layout_mode = 1
@@ -64,6 +71,18 @@ text = "Remove"
 visible = false
 layout_mode = 2
 text = "snaping"
+
+[node name="Entered Code" type="CodeEdit" parent="." unique_id=500048145]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 23.0
+offset_right = 351.0
+offset_bottom = 446.0
+placeholder_text = "code will be here"
+syntax_highlighter = SubResource("CodeHighlighter_ajyd5")
+gutters_draw_line_numbers = true
+gutters_draw_fold_gutter = true
+code_completion_enabled = true
 
 [connection signal="pressed" from="VBoxContainer/EnablePlacement" to="." method="_on_point_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PointButton" to="." method="_on_place_button_pressed"]

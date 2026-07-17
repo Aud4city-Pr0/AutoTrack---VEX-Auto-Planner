@@ -10,6 +10,9 @@ var isEnabled = false
 @export var robot_model: Node3D
 @export var robot_path: PathFollow3D
 @export var build_container: VBoxContainer
+@export var code_display: CodeEdit
+
+var finished_code: String = ""
 
 func _on_point_button_pressed():
 	if isEnabled == false:
@@ -37,7 +40,8 @@ func _on_gen_button_pressed():
 		path.curve = created_curve
 		robot_model.visible = true
 		robot_path.process_mode = Node.PROCESS_MODE_INHERIT
-		placmentScriptObject.generate_ez_template_code()
+		finished_code = placmentScriptObject.generate_ez_template_code()
+		code_display.text = finished_code
 	else:
 		print("You need at least one point to create a route!")
 

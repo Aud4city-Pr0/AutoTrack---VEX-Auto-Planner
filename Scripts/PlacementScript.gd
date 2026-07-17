@@ -119,10 +119,10 @@ func generate_ez_template_code() -> String:
 		var angle = rad_to_deg(atan2(dy, dx))
 
 		if !point_rotation.is_zero_approx():
-			code += "chassis.pid_turn_set(" + str(snappedf(angle, 0.01)) + ", 90);\n"
+			code += "chassis.pid_turn_set(" + str(snappedf(angle, 0.01)) + "_deg" + ", 90);\n"
 			code += "chassis.pid_wait();\n\n"
 
-		code += "chassis.pid_drive_set(" + str(snappedf(distance, 0.01)) + ", 110);\n"
+		code += "chassis.pid_drive_set(" + str(snappedf(distance, 0.01)) + "_in" + ", 110);\n"
 		code += "chassis.pid_wait();\n\n"
 	print(code)
 
