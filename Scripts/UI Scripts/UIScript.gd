@@ -37,6 +37,7 @@ func _on_gen_button_pressed():
 		path.curve = created_curve
 		robot_model.visible = true
 		robot_path.process_mode = Node.PROCESS_MODE_INHERIT
+		placmentScriptObject.generate_ez_template_code()
 	else:
 		print("You need at least one point to create a route!")
 

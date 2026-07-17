@@ -100,5 +100,34 @@ func disable_placement():
 		get_parent().remove_child.call_deferred(phantom)
 	process_mode = Node.PROCESS_MODE_DISABLED
 
+func generate_ez_template_code() -> String:
+	var code := ""
+	var nodes = point_parent.get_children()
+	
+	for i in range(1, curve_path.get_point_count()):
+		var previous_point = curve_path.get_point_position(i - 1)
+		var current_point = curve_path.get_point_position(i)
+
+		var dx = current_point.x - previous_point.x
+		var dy = current_point.z - previous_point.z
+
+		var distance = sqrt(dx * dx + dy * dy)
+
+		var point_rotation = nodes[i].global_rotation_degrees
+
+		# Convert radians to degrees
+		var angle = rad_to_deg(atan2(dy, dx))
+
+		if !point_rotation.is_zero_approx():
+			code += "chassis.pid_turn_set(" + str(snappedf(angle, 0.01)) + ", 90);\n"
+			code += "chassis.pid_wait();\n\n"
+
+		code += "chassis.pid_drive_set(" + str(snappedf(distance, 0.01)) + ", 110);\n"
+		code += "chassis.pid_wait();\n\n"
+	print(code)
+
+	return code
+
+
 func get_current_curve() -> Curve3D:
 	return curve_path
