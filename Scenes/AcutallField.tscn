@@ -77,16 +77,16 @@ transform = Transform3D(1.3789997, 0, -7.450581e-09, 0, 1.379, 0, 7.450581e-09, 
 visible = false
 
 [node name="CamPosition1" type="Node3D" parent="." unique_id=1072659326]
-transform = Transform3D(-4.371139e-08, -0.36487675, 0.9310557, 0, 0.9310557, 0.36487675, -1, 1.5949269e-08, -4.069774e-08, 8.894396, 5.791, -0.32159603)
+transform = Transform3D(-4.371139e-08, -0.36487675, 0.9310557, 0, 0.9310557, 0.36487675, -1, 1.5949269e-08, -4.069774e-08, 10.495657, 5.791, -0.32159603)
 
 [node name="CamPosition2" type="Node3D" parent="." unique_id=1192404024]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 7.8335495, 0)
 
 [node name="CamPosition3" type="Node3D" parent="." unique_id=1776284062]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.894, 5.791, 0.32)
+transform = Transform3D(-4.371139e-08, 0.36487678, -0.9310558, 0, 0.9310558, 0.36487678, 1, 1.594927e-08, -4.0697742e-08, -8.894, 5.791, 0.32)
 
 [node name="ObserverCam" type="Camera3D" parent="." unique_id=1764024990 node_paths=PackedStringArray("point_parent")]
-transform = Transform3D(-2.8212997e-07, -0.36461684, 0.93115765, 0, 0.93115765, 0.36461684, -1, 1.02869336e-07, -2.627075e-07, 8.893959, 5.7908278, -0.3214954)
+transform = Transform3D(-2.8212997e-07, -0.36461684, 0.93115765, 0, 0.93115765, 0.36461684, -1, 1.02869336e-07, -2.627075e-07, 10.496, 5.791, -0.321)
 script = ExtResource("3_m1qsn")
 point_scene = ExtResource("4_xx7qs")
 phantom_scene = ExtResource("5_qpdj1")

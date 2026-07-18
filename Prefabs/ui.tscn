@@ -16,13 +16,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ajyd5")
-placeBtn = NodePath("VBoxContainer/PointButton")
-removeBtn = NodePath("VBoxContainer/RemoveButton")
-genBtn = NodePath("VBoxContainer2/GeneratePath")
-build_container = NodePath("VBoxContainer")
+placeBtn = NodePath("BuildControlls/PointButton")
+removeBtn = NodePath("BuildControlls/RemoveButton")
+genBtn = NodePath("RobotConfig/GeneratePath")
+build_container = NodePath("BuildControlls")
 code_display = NodePath("Entered Code")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1694745861]
+[node name="BuildControlls" type="VBoxContainer" parent="." unique_id=1694745861]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -32,21 +32,21 @@ offset_right = 134.0
 grow_vertical = 0
 alignment = 2
 
-[node name="EnablePlacement" type="Button" parent="VBoxContainer" unique_id=1753915449]
+[node name="EnablePlacement" type="Button" parent="BuildControlls" unique_id=1753915449]
 layout_mode = 2
 text = "Build"
 
-[node name="PointButton" type="Button" parent="VBoxContainer" unique_id=368985082 groups=["build controlls"]]
+[node name="PointButton" type="Button" parent="BuildControlls" unique_id=368985082 groups=["build controlls"]]
 visible = false
 layout_mode = 2
 text = "Place"
 
-[node name="RemoveButton" type="Button" parent="VBoxContainer" unique_id=1473146507 groups=["build controlls"]]
+[node name="RemoveButton" type="Button" parent="BuildControlls" unique_id=1473146507 groups=["build controlls"]]
 visible = false
 layout_mode = 2
 text = "Remove"
 
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer" unique_id=2088689900 groups=["build controlls"]]
+[node name="CheckBox" type="CheckBox" parent="BuildControlls" unique_id=2088689900 groups=["build controlls"]]
 visible = false
 layout_mode = 2
 text = "snaping"
@@ -63,7 +63,7 @@ gutters_draw_line_numbers = true
 gutters_draw_fold_gutter = true
 code_completion_enabled = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=339114926]
+[node name="RobotConfig" type="VBoxContainer" parent="." unique_id=339114926]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -71,21 +71,39 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -148.0
-offset_top = -66.0
+offset_top = -136.0
 grow_horizontal = 0
 grow_vertical = 0
+alignment = 1
 
-[node name="CamPositionButton" type="Button" parent="VBoxContainer2" unique_id=1586248954]
+[node name="RPMBox" type="LineEdit" parent="RobotConfig" unique_id=1763401149]
+layout_mode = 2
+placeholder_text = "Drivetrain RPM"
+alignment = 1
+max_length = 3
+
+[node name="Wheel Size" type="OptionButton" parent="RobotConfig" unique_id=269849423]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Size: 4.125"
+popup/item_0/id = 0
+popup/item_1/text = "Size: 3.25"
+popup/item_1/id = 1
+popup/item_2/text = "Size: 2.75"
+popup/item_2/id = 2
+
+[node name="CamPositionButton" type="Button" parent="RobotConfig" unique_id=1586248954]
 layout_mode = 2
 text = "Cam"
 
-[node name="GeneratePath" type="Button" parent="VBoxContainer2" unique_id=988792277]
+[node name="GeneratePath" type="Button" parent="RobotConfig" unique_id=988792277]
 layout_mode = 2
 text = "Generate"
 
-[connection signal="pressed" from="VBoxContainer/EnablePlacement" to="." method="_on_point_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/PointButton" to="." method="_on_place_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/RemoveButton" to="." method="_on_remove_button_pressed"]
-[connection signal="toggled" from="VBoxContainer/CheckBox" to="." method="_on_snap_enabled"]
-[connection signal="pressed" from="VBoxContainer2/CamPositionButton" to="." method="_on_cam_position_button_pressed"]
-[connection signal="pressed" from="VBoxContainer2/GeneratePath" to="." method="_on_gen_button_pressed"]
+[connection signal="pressed" from="BuildControlls/EnablePlacement" to="." method="_on_point_button_pressed"]
+[connection signal="pressed" from="BuildControlls/PointButton" to="." method="_on_place_button_pressed"]
+[connection signal="pressed" from="BuildControlls/RemoveButton" to="." method="_on_remove_button_pressed"]
+[connection signal="toggled" from="BuildControlls/CheckBox" to="." method="_on_snap_enabled"]
+[connection signal="pressed" from="RobotConfig/CamPositionButton" to="." method="_on_cam_position_button_pressed"]
+[connection signal="pressed" from="RobotConfig/GeneratePath" to="." method="_on_gen_button_pressed"]

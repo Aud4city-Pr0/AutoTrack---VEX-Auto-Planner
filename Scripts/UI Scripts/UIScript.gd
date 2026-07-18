@@ -55,7 +55,6 @@ func _on_snap_enabled(snap_status):
 
 func _set_child_visiblity(status: bool):
 	for child in build_container.get_children():
-		print(child)
 		if status == true and child.is_in_group("build controlls"):
 			child.show()
 		elif status == false and child.is_in_group("build controlls"):
