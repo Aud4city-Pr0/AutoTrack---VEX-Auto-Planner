@@ -18,25 +18,9 @@ grow_vertical = 2
 script = ExtResource("1_ajyd5")
 placeBtn = NodePath("VBoxContainer/PointButton")
 removeBtn = NodePath("VBoxContainer/RemoveButton")
-genBtn = NodePath("VBoxContainer/GeneratePath")
+genBtn = NodePath("VBoxContainer2/GeneratePath")
 build_container = NodePath("VBoxContainer")
 code_display = NodePath("Entered Code")
-
-[node name="CamPositionButton" type="Button" parent="." unique_id=1586248954]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 447.0
-offset_top = 218.0
-offset_right = 490.0
-offset_bottom = 249.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2.9541037, 3.1748414)
-text = "Cam"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1694745861]
 layout_mode = 1
@@ -56,11 +40,6 @@ text = "Build"
 visible = false
 layout_mode = 2
 text = "Place"
-
-[node name="GeneratePath" type="Button" parent="VBoxContainer" unique_id=988792277 groups=["build controlls"]]
-visible = false
-layout_mode = 2
-text = "Gen"
 
 [node name="RemoveButton" type="Button" parent="VBoxContainer" unique_id=1473146507 groups=["build controlls"]]
 visible = false
@@ -84,8 +63,29 @@ gutters_draw_line_numbers = true
 gutters_draw_fold_gutter = true
 code_completion_enabled = true
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=339114926]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -66.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="CamPositionButton" type="Button" parent="VBoxContainer2" unique_id=1586248954]
+layout_mode = 2
+text = "Cam"
+
+[node name="GeneratePath" type="Button" parent="VBoxContainer2" unique_id=988792277]
+layout_mode = 2
+text = "Generate"
+
 [connection signal="pressed" from="VBoxContainer/EnablePlacement" to="." method="_on_point_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/PointButton" to="." method="_on_place_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/GeneratePath" to="." method="_on_gen_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/RemoveButton" to="." method="_on_remove_button_pressed"]
 [connection signal="toggled" from="VBoxContainer/CheckBox" to="." method="_on_snap_enabled"]
+[connection signal="pressed" from="VBoxContainer2/CamPositionButton" to="." method="_on_cam_position_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/GeneratePath" to="." method="_on_gen_button_pressed"]

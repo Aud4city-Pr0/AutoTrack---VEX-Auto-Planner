@@ -46,15 +46,6 @@ transform = Transform3D(3.658, 0, 0, 0, 3.658, 0, 0, 0, 3.658, 0, 0, 0)
 [node name="Elements" parent="Field" unique_id=1812569916 instance=ExtResource("3_24fwg")]
 transform = Transform3D(3.754, 0, 0, 0, 3.754, 0, 0, 0, 3.754, 0, 0, 0)
 
-[node name="ObserverCam" type="Camera3D" parent="." unique_id=1764024990 node_paths=PackedStringArray("point_parent")]
-transform = Transform3D(1, 0, 0, 0, 0.9311577, 0.3646168, 0, -0.3646168, 0.9311577, -0.058899403, 5.7908278, 9.622017)
-script = ExtResource("3_m1qsn")
-point_scene = ExtResource("4_xx7qs")
-phantom_scene = ExtResource("5_qpdj1")
-point_parent = NodePath("../PointParent")
-place_material = ExtResource("6_dc6yy")
-notplace_material = ExtResource("7_y8xr4")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2081814200]
 transform = Transform3D(-0.99890125, 0.0056566875, -0.04652048, -0.0062733963, 0.96761227, 0.25236297, 0.046441324, 0.25237754, -0.9665139, 5.6854744, 3.7049367, 0)
 light_energy = 2.865
@@ -62,11 +53,12 @@ light_energy = 2.865
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1598090034]
 environment = SubResource("Environment_ce8k0")
 
-[node name="UI" parent="." unique_id=1466292623 node_paths=PackedStringArray("placmentScriptObject", "path", "robot_model", "robot_path") instance=ExtResource("9_y8xr4")]
+[node name="UI" parent="." unique_id=1466292623 node_paths=PackedStringArray("placmentScriptObject", "path", "robot_model", "robot_path", "position_list") instance=ExtResource("9_y8xr4")]
 placmentScriptObject = NodePath("../ObserverCam")
 path = NodePath("../Path3D")
 robot_model = NodePath("../Path3D/PathFollow3D/Robor")
 robot_path = NodePath("../Path3D/PathFollow3D")
+position_list = [NodePath("../CamPosition1"), NodePath("../CamPosition2"), NodePath("../CamPosition3")]
 
 [node name="PointParent" type="Node" parent="." unique_id=1769150811]
 
@@ -83,3 +75,21 @@ script = ExtResource("11_24fwg")
 [node name="Robor" parent="Path3D/PathFollow3D" unique_id=215345827 instance=ExtResource("10_24fwg")]
 transform = Transform3D(1.3789997, 0, -7.450581e-09, 0, 1.379, 0, 7.450581e-09, 0, 1.3789997, 0.021285653, 0.2792679, 0.32179117)
 visible = false
+
+[node name="CamPosition1" type="Node3D" parent="." unique_id=1072659326]
+transform = Transform3D(-4.371139e-08, -0.36487675, 0.9310557, 0, 0.9310557, 0.36487675, -1, 1.5949269e-08, -4.069774e-08, 8.894396, 5.791, -0.32159603)
+
+[node name="CamPosition2" type="Node3D" parent="." unique_id=1192404024]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 7.8335495, 0)
+
+[node name="CamPosition3" type="Node3D" parent="." unique_id=1776284062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.894, 5.791, 0.32)
+
+[node name="ObserverCam" type="Camera3D" parent="." unique_id=1764024990 node_paths=PackedStringArray("point_parent")]
+transform = Transform3D(-2.8212997e-07, -0.36461684, 0.93115765, 0, 0.93115765, 0.36461684, -1, 1.02869336e-07, -2.627075e-07, 8.893959, 5.7908278, -0.3214954)
+script = ExtResource("3_m1qsn")
+point_scene = ExtResource("4_xx7qs")
+phantom_scene = ExtResource("5_qpdj1")
+point_parent = NodePath("../PointParent")
+place_material = ExtResource("6_dc6yy")
+notplace_material = ExtResource("7_y8xr4")

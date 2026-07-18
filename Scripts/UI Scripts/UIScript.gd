@@ -11,6 +11,8 @@ var isEnabled = false
 @export var robot_path: PathFollow3D
 @export var build_container: VBoxContainer
 @export var code_display: CodeEdit
+@export var position_list: Array[Node3D]
+var current_position = 0
 
 var finished_code: String = ""
 
@@ -58,3 +60,15 @@ func _set_child_visiblity(status: bool):
 			child.show()
 		elif status == false and child.is_in_group("build controlls"):
 			child.hide()
+
+
+func _on_cam_position_button_pressed() -> void:
+	# the camera button code
+	current_position += 1
+	# checking if postion is greater than the size of the array
+	if current_position >= position_list.size():
+		print("reseting back to zero")
+		current_position = 0
+	print("Current position is: " + str(current_position))
+	placmentScriptObject.global_position = position_list[current_position].global_position
+	placmentScriptObject.global_rotation = position_list[current_position].global_rotation
